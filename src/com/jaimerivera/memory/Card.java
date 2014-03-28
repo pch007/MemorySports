@@ -35,4 +35,5 @@ public class Card {
 	public static final Card getCard(Face face, Suit suit) {
 		return CARDS[suit.ordinal() * NUM_FACES + face.ordinal()];
 	}
+
 }

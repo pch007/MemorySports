@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.jaimerivera.memory.Phoneme;
+
 public class PrefixTree<E, D> {
 
 	protected Map<E, PrefixTree<E, D>> children;
@@ -109,7 +111,7 @@ public class PrefixTree<E, D> {
 				new ArrayList<D>(foundTree.containedData);
 	}
 	
-	protected PrefixTree<E, D> getTree(E[] value) {
+	public PrefixTree<E, D> getTree(E[] value) {
 		return this.getTree(value, 0);
 	}
 	

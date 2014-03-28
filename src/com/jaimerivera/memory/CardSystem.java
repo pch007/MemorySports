@@ -6,7 +6,7 @@ import java.io.IOException;
 import com.jaimerivera.memory.Card.Face;
 import com.jaimerivera.memory.Card.Suit;
 
-public class CardSystem extends System<Integer, Card> {
+public class CardSystem extends DoubleMap<Integer, Card> {
 	
 	public CardSystem(File file) throws IOException {
 		super(file);

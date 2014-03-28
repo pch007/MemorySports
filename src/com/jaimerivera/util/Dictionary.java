@@ -59,7 +59,7 @@ public class Dictionary {
 	 * @return a formatted <code>String</code> of word, which is proper
 	 * for dictionary inclusion.
 	 */
-	protected static String format(String word) {
+	public static String format(String word) {
 		return word.toUpperCase();
 	}
 	

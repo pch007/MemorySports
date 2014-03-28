@@ -3,7 +3,7 @@ package com.jaimerivera.memory;
 import java.io.File;
 import java.io.IOException;
 
-public class MajorSystem extends System<Integer, String> {
+public class MajorSystem extends DoubleMap<Integer, String> {
 
 	public MajorSystem(File file) throws IOException {
 		super(file);
@@ -32,4 +32,5 @@ public class MajorSystem extends System<Integer, String> {
 		
 		return (value == null) ? null : value.toString();
 	}
+
 }
