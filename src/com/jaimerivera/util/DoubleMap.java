@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public abstract class DoubleMap<A, B> {
 	
@@ -45,6 +46,14 @@ public abstract class DoubleMap<A, B> {
 	public abstract A parseType1(String line);
 	
 	public abstract B parseType2(String line);
+	
+	public Set<A> getTypeA() {
+		return this.aMapping.keySet();
+	}
+	
+	public Set<B> getTypeB() {
+		return this.bMapping.keySet();
+	}
 	
 	public Object get(Object o) {
 		if (aMapping.containsKey(o)) {
