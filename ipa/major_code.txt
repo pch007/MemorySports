@@ -1,0 +1,17 @@
+// Comments formed with "//".
+//
+// Input Format:
+// digit:p_1 p_2 p_3 p_4 ... p_n
+//
+// Where your n >= 1 and phoneme sound, p_i, is space delimited.
+
+0: S Z ZH
+1: T D TH DH
+2: N
+3: M EM
+4: R ER
+5: L EL
+6: JH SH
+7: K CH G Q
+8: F V
+9: P B
