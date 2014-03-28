@@ -14,13 +14,13 @@ public class CardSystem extends DoubleMap<Integer, Card> {
 	}
 
 	@Override
-	public Integer getType1(String line) {
+	public Integer parseType1(String line) {
 		int index = line.indexOf(" ");
 		return Integer.parseInt(line.substring(0, index));
 	}
 
 	@Override
-	public Card getType2(String line) {
+	public Card parseType2(String line) {
 		int index = line.indexOf(" ");
 		String[] faceAndSuit = line.substring(index + 1).split(" ");
 		

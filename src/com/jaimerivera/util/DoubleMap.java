@@ -32,8 +32,8 @@ public abstract class DoubleMap<A, B> {
 				continue;
 			}
 			
-			A a = this.getType1(line);
-			B b = this.getType2(line);
+			A a = this.parseType1(line);
+			B b = this.parseType2(line);
 			
 			this.aMapping.put(a, b);
 			this.bMapping.put(b, a);
@@ -42,9 +42,9 @@ public abstract class DoubleMap<A, B> {
 		br.close();
 	}
 
-	public abstract A getType1(String line);
+	public abstract A parseType1(String line);
 	
-	public abstract B getType2(String line);
+	public abstract B parseType2(String line);
 	
 	public Object get(Object o) {
 		if (aMapping.containsKey(o)) {

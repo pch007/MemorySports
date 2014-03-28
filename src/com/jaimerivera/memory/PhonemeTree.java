@@ -9,7 +9,7 @@ import com.jaimerivera.util.PrefixTree;
 
 public class PhonemeTree {
 	
-	public PrefixTree<Phoneme, String> phonemeTree;
+	private PrefixTree<Phoneme, String> phonemeTree;
 	
 	public PhonemeTree() {
 		this.phonemeTree = new PrefixTree<Phoneme, String>();
@@ -23,7 +23,7 @@ public class PhonemeTree {
 			}
 		}
 	}
-	
+
 	/**
 	 * 
 	 * @param word a Word to be included within the map.
