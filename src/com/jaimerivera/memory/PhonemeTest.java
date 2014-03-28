@@ -13,8 +13,6 @@ public class PhonemeTest {
 		for (String word : map.keys()) {
 			tree.add(word, map.getPhonemes(word));
 		}
-
-//		System.out.println(tree.size());
 		
 		// AA2 R M AH0 G EH1 D AH0 N
 		Phoneme[] phonemes = new Phoneme[] {

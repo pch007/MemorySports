@@ -64,12 +64,4 @@ public class PhonemeTree {
 		return this.phonemeTree.getContains(phonemes);
 	}
 	
-	/**
-	 * 
-	 * @return the number of nodes represented in this tree.
-	 */
-	public int size() {
-		return this.phonemeTree.size();
-	}
-	
 }

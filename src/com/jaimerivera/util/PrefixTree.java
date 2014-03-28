@@ -11,12 +11,10 @@ public class PrefixTree<E, D> {
 
 	protected Map<E, PrefixTree<E, D>> children;
 	protected List<D> containedData;
-	protected int size;
 	
 	public PrefixTree() {
 		this.containedData = null;
 		this.children = null;
-		this.size = 0;
 	}
 	
 	public boolean containsValue(E[] value) {
@@ -56,11 +54,7 @@ public class PrefixTree<E, D> {
 		
 		PrefixTree<E, D> child = this.children.get(value[index]);
 		boolean success = child.add(value, data, index + 1);
-		
-		if (success) {
-			this.size += child.size;
-		}
-		
+
 		return success;
 	}
 	
@@ -71,7 +65,6 @@ public class PrefixTree<E, D> {
 		
 		if (!this.containedData.contains(value)) {
 			this.containedData.add(data);
-			this.size++;
 		}		
 	}
 	
@@ -191,12 +184,5 @@ public class PrefixTree<E, D> {
 			}
 		}
 	}
-	
-	/**
-	 * 
-	 * @return the number of nodes represented within this tree.
-	 */
-	public int size() {
-		return this.size;
-	}
+
 }
