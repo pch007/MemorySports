@@ -112,7 +112,6 @@ public class PrefixTree<E, D> {
 		if (index >= value.length) {
 			return this;
 		} else if (this.children == null || !this.children.containsKey(value[index])) {
-			System.out.println("failsauce");
 			return null;
 		}
 		
@@ -130,7 +129,9 @@ public class PrefixTree<E, D> {
 		List<D> accumulatedData = new ArrayList<D>();
 		
 		for (PrefixTree<E, D> tree : trees) {
-			accumulatedData.addAll(tree.containedData);
+			if (tree.containedData != null) {
+				accumulatedData.addAll(tree.containedData);
+			}
 		}
 		
 		return accumulatedData;
@@ -143,14 +144,15 @@ public class PrefixTree<E, D> {
 	}
 	
 	private void storeNestedTrees(List<PrefixTree<E, D>> trees, E[][] permutations, int index) {
-		if (index >= permutations.length) {
+		if (index == permutations.length) {
 			trees.add(this);
-		} else if (permutations[index] == null) {
+			return;
+		} else if (permutations[index] == null || this.children == null) {
 			return;
 		}
 		
 		E[] level = permutations[index];
-		
+
 		for (int i = 0; i < level.length; i++) {
 			if (this.children.containsKey(level[i])) {
 				PrefixTree<E, D> child = this.children.get(level[i]);

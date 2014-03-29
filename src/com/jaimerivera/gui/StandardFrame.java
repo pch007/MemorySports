@@ -81,12 +81,18 @@ public class StandardFrame extends JFrame {
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
+		// TODO: Pass things needed as parameters
+		PhraseGenerator phraseGeneratorPanel = new PhraseGenerator();
 		MajorCodeSystemPanel majorCodeSystemPanel = new MajorCodeSystemPanel();
 		CardSystemPanel cardSystemPanel = new CardSystemPanel();
+		
+		tabbedPane.add(phraseGeneratorPanel);
 		tabbedPane.add(majorCodeSystemPanel);
-		tabbedPane.setTitleAt(0, "Major Code System");
 		tabbedPane.add(cardSystemPanel);
-		tabbedPane.setTitleAt(1, "Card System");
+		
+		tabbedPane.setTitleAt(0, "Phrase Generator");
+		tabbedPane.setTitleAt(1, "Major Code System");
+		tabbedPane.setTitleAt(2, "Card System");
 	}
 
 }

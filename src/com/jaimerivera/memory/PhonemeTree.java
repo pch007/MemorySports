@@ -1,6 +1,7 @@
 package com.jaimerivera.memory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class PhonemeTree {
 		this.phonemeTree = new PrefixTree<Phoneme, String>();
 		if (phonemeMap != null) {
 			for (Map.Entry<String, Phoneme[]> entry : phonemeMap.entrySet()) {
-				phonemeTree.add(entry.getValue(), entry.getKey());
+				this.add(entry.getKey(), entry.getValue());
 			}
 		}
 	}
@@ -63,5 +64,51 @@ public class PhonemeTree {
 	public List<String> getWordsThatContain(Phoneme[] phonemes) {
 		return this.phonemeTree.getContains(phonemes);
 	}
+	
+	/**
+	 * 
+	 * @param nestedPhonemes 2-Dimensional list of phonemes of which to permute to obtain a phrase.
+	 * @return a <code>List</code> of <code>String</code> that represent the phrase.
+	 */
+	public List<String> getRandomPhrase(Phoneme[][] nestedPhonemes) {
+		List<String> phrase = new ArrayList<String>();
+		int size = nestedPhonemes.length;
+		
+		while (size != 0) {
+			int sizeFound = 0;
+			
+			for (int tempSize = size; tempSize >= 1; tempSize--) {
+				int start = nestedPhonemes.length - size;
+				Phoneme[][] subNest = Arrays.copyOfRange(nestedPhonemes, start, start + tempSize);
+				List<String> wordsFound = this.getWords(subNest);
+				
+				if (!wordsFound.isEmpty()) {
+					sizeFound = tempSize;
+					
+					int randomSelection = (int)(Math.random() * wordsFound.size());
+					String selection = wordsFound.get(randomSelection);
+					phrase.add(selection);
+					break;
+				}
+			}
+			
+			if (sizeFound == 0) {
+				return new ArrayList<String>();
+			}
+			size -= sizeFound;
+		}
+		
+		return phrase;
+	}
+	
+	/**
+	 * 
+	 * @param nestedPhonemes 2-Dimensional list of phonemes of which to permute to obtain a phrase.
+	 * @return a <code>List</code> of <code>String</code> that can be created with the phonemes.
+	 */
+	public List<String> getWords(Phoneme[][] nestedPhonemes) {
+		return this.phonemeTree.getNested(nestedPhonemes);
+	}
+
 	
 }
