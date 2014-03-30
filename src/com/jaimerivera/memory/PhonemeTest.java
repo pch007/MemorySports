@@ -17,7 +17,8 @@ public class PhonemeTest {
 				accepted.add(p);
 			}
 		}
-		PhonemeMap map = new RestrictedPhonemeMap(new File("ipa/ipa_dictionary.txt"), accepted);
+//		PhonemeMap map = new RestrictedPhonemeMap(new File("ipa/ipa_dictionary.txt"), accepted);
+		PhonemeMap map = new PhonemeMap(new File("ipa/ipa_dictionary.txt"));
 		PhonemeTree tree = new PhonemeTree();
 		
 		for (String word : map.keys()) {
@@ -25,28 +26,33 @@ public class PhonemeTest {
 		}
 		
 		// AA2 R M AH0 G EH1 D AH0 N
-		Phoneme[][] phonemes = new Phoneme[][] {
-				mcMap.getPhonemes("1"),
-				mcMap.getPhonemes("3"),
-				mcMap.getPhonemes("2"),
-				mcMap.getPhonemes("1"),
-				mcMap.getPhonemes("3"),
-				mcMap.getPhonemes("2"),
-				mcMap.getPhonemes("1"),
-				mcMap.getPhonemes("3"),
-				mcMap.getPhonemes("2"),
-				mcMap.getPhonemes("1"),
-				mcMap.getPhonemes("3"),
-				mcMap.getPhonemes("2"),
-				mcMap.getPhonemes("1"),
-				mcMap.getPhonemes("3"),
-				mcMap.getPhonemes("2"),
+//		Phoneme[][] phonemes = new Phoneme[][] {
+//				mcMap.getPhonemes("1"),
+//				mcMap.getPhonemes("3"),
+//				mcMap.getPhonemes("2"),
+//				mcMap.getPhonemes("1"),
+//				mcMap.getPhonemes("3"),
+//				mcMap.getPhonemes("2"),
+//				mcMap.getPhonemes("1"),
+//				mcMap.getPhonemes("3"),
+//				mcMap.getPhonemes("2"),
+//				mcMap.getPhonemes("1"),
+//				mcMap.getPhonemes("3"),
+//				mcMap.getPhonemes("2"),
+//				mcMap.getPhonemes("1"),
+//				mcMap.getPhonemes("3"),
+//				mcMap.getPhonemes("2"),
+//		};
+		
+		// G UW1 G AH0 L
+		Phoneme[] phonemes = new Phoneme[] {
+			Phoneme.UW, Phoneme.G, Phoneme.AH, Phoneme.L
 		};
 		
 		System.out.println("---");
 //		System.out.println(Arrays.toString(phonemes));
 		long start = System.currentTimeMillis();
-		System.out.println(tree.getRandomPhrase(phonemes));
+		System.out.println(tree.getWordsThatEndWith(phonemes));
 		System.out.println(System.currentTimeMillis() - start);
 	}
 }

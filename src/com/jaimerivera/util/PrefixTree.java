@@ -17,6 +17,10 @@ public class PrefixTree<E, D> {
 		this.children = null;
 	}
 	
+	public List<D> getValues() {
+		return (this.containedData == null) ? new ArrayList<D>() : new ArrayList<D>(this.containedData);
+	}
+	
 	public boolean containsValue(E[] value) {
 		List<D> values = this.get(value);
 		return values != null && !values.isEmpty();
@@ -162,14 +166,25 @@ public class PrefixTree<E, D> {
 	}
 	
 	public List<D> getContains(Phoneme[] phonemes) {
-		List<D> contained = new ArrayList<D>();
-		storeContains(contained, phonemes, 0);
-		return contained;
+		List<D> contains = new ArrayList<D>();
+		List<PrefixTree<E, D>> treeContainers = this.getTreesThatContain(phonemes);
+		
+		for (PrefixTree<E, D> tree : treeContainers) {
+			contains.addAll(tree.getAllValues());
+		}
+		
+		return contains;
 	}
 	
-	private void storeContains(List<D> contained, Phoneme[] phonemes, int index) {
+	public List<PrefixTree<E, D>> getTreesThatContain(Phoneme[] phonemes) {
+		List<PrefixTree<E, D>> treeContainers = new ArrayList<PrefixTree<E, D>>();
+		storeContains(treeContainers, phonemes, 0);
+		return treeContainers;
+	}
+	
+	private void storeContains(List<PrefixTree<E, D>> contained, Phoneme[] phonemes, int index) {
 		if (index == phonemes.length) {
-			contained.addAll(this.getAllValues());
+			contained.add(this);
 			return;
 		} else if (this.children == null) {
 			return;

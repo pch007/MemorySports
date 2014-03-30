@@ -2,7 +2,7 @@ package com.jaimerivera.util;
 
 public class DictionaryTest {
 	public static void main(String args[]) {
-		Dictionary dict = new Dictionary();
+		WordDictionary dict = new WordDictionary();
 		
 		dict.addWord("cat");
 		dict.addWord("hell");

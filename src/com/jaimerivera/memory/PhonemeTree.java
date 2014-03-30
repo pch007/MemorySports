@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import com.jaimerivera.util.Dictionary;
+import com.jaimerivera.util.WordDictionary;
 import com.jaimerivera.util.PrefixTree;
 
 public class PhonemeTree {
@@ -31,7 +31,7 @@ public class PhonemeTree {
 	 * @return true if the word existed or was inserted properly.
 	 */
 	public boolean add(String word, Phoneme[] sound) {
-		return this.phonemeTree.add(sound, Dictionary.format(word));
+		return this.phonemeTree.add(sound, WordDictionary.format(word));
 	}
 	
 	/**
@@ -53,6 +53,23 @@ public class PhonemeTree {
 	public List<String> getWordsThatStartWith(Phoneme[] phonemes) {
 		PrefixTree<Phoneme, String> tree = this.phonemeTree.getTree(phonemes);
 		return (tree == null) ? new ArrayList<String>() : tree.getAllValues();
+	}
+	
+	/**
+	 * 
+	 * @param phonemes a sequence of phonemes.
+	 * @return a <code>List</code> of words that end
+	 * with phonemes in the exact sequence of <code>phonemes</code>.
+	 */
+	public List<String> getWordsThatEndWith(Phoneme[] phonemes) {
+		List<PrefixTree<Phoneme, String>> trees = this.phonemeTree.getTreesThatContain(phonemes);
+		List<String> words = new ArrayList<String>();
+		
+		for (PrefixTree<Phoneme, String> tree : trees) {
+			words.addAll(tree.getValues());
+		}
+		
+		return words;
 	}
 	
 	/**
