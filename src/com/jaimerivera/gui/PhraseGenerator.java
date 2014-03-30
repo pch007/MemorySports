@@ -13,10 +13,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
 
+import com.jaimerivera.memory.MajorCodeMap;
 import com.jaimerivera.memory.Phoneme;
 import com.jaimerivera.memory.PhonemeTree;
 import com.jaimerivera.memory.RestrictedPhonemeMap;
-import com.jaimerivera.memory.std.MajorCodeMap;
 
 public class PhraseGenerator extends StandardResponsePanel {
 

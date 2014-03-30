@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
+
 public class MajorCodeMap extends PhonemeMap {
 
 	public MajorCodeMap(File file) throws IOException {

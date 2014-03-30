@@ -14,11 +14,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+import com.jaimerivera.memory.MajorCodeSystem;
 import com.jaimerivera.memory.spec.Card;
 import com.jaimerivera.memory.spec.Card.Face;
 import com.jaimerivera.memory.spec.Card.Suit;
 import com.jaimerivera.memory.spec.CardSystem;
-import com.jaimerivera.memory.std.MajorCodeSystem;
 
 public class CardSystemPanel extends StandardResponsePanel {
 

@@ -68,7 +68,7 @@ public class PartsOfSpeechDictionary {
 	}
 	
 	public static void main(String args[]) {
-		PartsOfSpeechDictionary posDict = new PartsOfSpeechDictionary(new File("pos_dict.txt"));
+		PartsOfSpeechDictionary posDict = new PartsOfSpeechDictionary(new File("ipa/pos_dict.txt"));
 		System.out.println(Arrays.toString(posDict.getPartsOfSpeech("something")));
 	}
 }

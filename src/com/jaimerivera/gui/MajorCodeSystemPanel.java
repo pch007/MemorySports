@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import com.jaimerivera.memory.std.MajorCodeSystem;
+import com.jaimerivera.memory.MajorCodeSystem;
 
 public class MajorCodeSystemPanel extends StandardResponsePanel {
 
